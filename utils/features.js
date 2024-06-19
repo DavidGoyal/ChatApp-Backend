@@ -72,5 +72,7 @@ export const uploadFilesToCloudinary = async (files = []) => {
 
 
 export const deletePublicIdFromCloudinary=async(publicIds)=>{
-    
+  for (let index = 0; index < publicIds.length; index++) {
+    await cloudinary.uploader.destroy(publicIds[index]);
+  }
 }
